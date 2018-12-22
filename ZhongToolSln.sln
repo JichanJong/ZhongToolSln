@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZhongTool", "ZhongTool\ZhongTool.csproj", "{41F8A14E-32FC-4819-8B3E-9C6CE110A8D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZhongTool.Model", "ZhongTool.Model\ZhongTool.Model.csproj", "{29D68BB3-BA45-4567-BFC6-EED2F23B187E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZhongTool.Common", "ZhongTool.Common\ZhongTool.Common.csproj", "{20BF9085-CA1D-44B2-8E12-231C363012DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zhong.DataService", "Zhong.DataService\Zhong.DataService.csproj", "{AEB448E0-2E4A-4128-9773-D5564DC3FF40}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{41F8A14E-32FC-4819-8B3E-9C6CE110A8D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41F8A14E-32FC-4819-8B3E-9C6CE110A8D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41F8A14E-32FC-4819-8B3E-9C6CE110A8D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41F8A14E-32FC-4819-8B3E-9C6CE110A8D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29D68BB3-BA45-4567-BFC6-EED2F23B187E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29D68BB3-BA45-4567-BFC6-EED2F23B187E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29D68BB3-BA45-4567-BFC6-EED2F23B187E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29D68BB3-BA45-4567-BFC6-EED2F23B187E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20BF9085-CA1D-44B2-8E12-231C363012DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20BF9085-CA1D-44B2-8E12-231C363012DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20BF9085-CA1D-44B2-8E12-231C363012DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20BF9085-CA1D-44B2-8E12-231C363012DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEB448E0-2E4A-4128-9773-D5564DC3FF40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEB448E0-2E4A-4128-9773-D5564DC3FF40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEB448E0-2E4A-4128-9773-D5564DC3FF40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEB448E0-2E4A-4128-9773-D5564DC3FF40}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

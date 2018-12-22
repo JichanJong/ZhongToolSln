@@ -1,0 +1,57 @@
+﻿<Window x:Class="ZhongTool.FrmConnectionManagement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZhongTool"
+        mc:Ignorable="d"
+        Title="数据库连接管理" Height="300" Width="300" WindowStartupLocation="CenterScreen" Loaded="FrmConnectionManagement_Loaded">
+    <Grid>
+        <DockPanel LastChildFill="True">
+            <ToolBar DockPanel.Dock="Top" Height="32">
+                <Button x:Name="btnAdd" Click="BtnAdd_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Images/add.png"></Image>
+                        <TextBlock Text="添加" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnEdit" Click="BtnEdit_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Images/Edit.png"></Image>
+                        <TextBlock Text="编辑" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnDelete" Click="BtnDelete_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Images/delete.png"></Image>
+                        <TextBlock Text="删除" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnConnect" Click="BtnConnect_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Images/connection.png"></Image>
+                        <TextBlock Text="连接" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                </Button>
+            </ToolBar>
+            <ListView DockPanel.Dock="Bottom" x:Name="lstConnection">
+                <ListView.View>
+                    <GridView>
+                        <GridView.Columns>
+                            <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Path=Id}"></GridViewColumn>
+                            <GridViewColumn Header="名称" DisplayMemberBinding="{Binding Path=Name}"></GridViewColumn>
+                            <GridViewColumn Header="数据库类型" DisplayMemberBinding="{Binding Path=DatabaseType}"></GridViewColumn>
+                            <GridViewColumn Header="连接字符串">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Path=ConnectionString}" TextWrapping="Wrap"></TextBlock>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </DockPanel>
+    </Grid>
+</Window>

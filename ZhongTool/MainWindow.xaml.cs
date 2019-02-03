@@ -69,5 +69,11 @@ namespace ZhongTool
             FrmQrcode frm = new FrmQrcode();
             frm.ShowDialog();
         }
+
+        private void regex_Click(object sender, RoutedEventArgs e)
+        {
+            FrmRegex frm = new FrmRegex();
+            frm.ShowDialog();
+        }
     }
 }

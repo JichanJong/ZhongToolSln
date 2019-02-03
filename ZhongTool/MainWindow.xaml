@@ -23,6 +23,7 @@
             <MenuItem Header="工具" Height="32">
                 <MenuItem Height="32" Header="执行SQL" Click="ExecuteSqlMenuItem_Click"></MenuItem>
                 <MenuItem Height="32" Header="二维码生成" x:Name="qrcode" Click="QrcodeMenuItem_OnClick"></MenuItem>
+                <MenuItem Height="32" Header="正则表达式" x:Name="regex" Click="regex_Click"></MenuItem>
             </MenuItem>
         </Menu>
     </Grid>

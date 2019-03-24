@@ -24,6 +24,8 @@
                 <MenuItem Height="32" Header="执行SQL" Click="ExecuteSqlMenuItem_Click"></MenuItem>
                 <MenuItem Height="32" Header="二维码生成" x:Name="qrcode" Click="QrcodeMenuItem_OnClick"></MenuItem>
                 <MenuItem Height="32" Header="正则表达式" x:Name="regex" Click="regex_Click"></MenuItem>
+                <MenuItem Height="32" Header="数据库工具" x:Name="databaseTool" Click="DatabaseTool_Click"></MenuItem>
+                <MenuItem Height="32" Header="JSON工具" x:Name="jsonTool" Click="JsonTool_Click"></MenuItem>
             </MenuItem>
         </Menu>
     </Grid>

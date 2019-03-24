@@ -75,5 +75,16 @@ namespace ZhongTool
             FrmRegex frm = new FrmRegex();
             frm.ShowDialog();
         }
+
+        private void DatabaseTool_Click(object sender, RoutedEventArgs e)
+        {
+            
+
+        }
+
+        private void JsonTool_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

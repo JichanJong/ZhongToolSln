@@ -46,12 +46,22 @@
 
         <GroupBox x:Name="gopInput" Grid.Row="4" Grid.ColumnSpan="6" Grid.Column="0">
             <GroupBox.Header>源文本</GroupBox.Header>
-            <TextBox TextWrapping="Wrap"></TextBox>
+            <TextBox TextWrapping="Wrap" x:Name="txtInput"></TextBox>
         </GroupBox>
 
         <GroupBox x:Name="gopOutput" Grid.Row="5" Grid.ColumnSpan="6" Grid.Column="0">
             <GroupBox.Header>结果</GroupBox.Header>
-            <TextBox TextWrapping="Wrap"></TextBox>
+            <GroupBox.Content>
+                <Grid>
+                    <Grid.RowDefinitions><RowDefinition></RowDefinition></Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions><ColumnDefinition></ColumnDefinition></Grid.ColumnDefinitions>
+                    <TextBox TextWrapping="Wrap" x:Name="txtOutput"></TextBox>
+                    <ListView x:Name="viewResult" Visibility="Collapsed"></ListView>
+                </Grid>
+                
+            </GroupBox.Content>
+            
+            
         </GroupBox>
     </Grid>
 </Window>

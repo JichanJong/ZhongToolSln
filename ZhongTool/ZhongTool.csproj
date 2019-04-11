@@ -75,6 +75,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="FrmDatabaseTool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FrmExecuteSql.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -84,6 +88,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FrmHtmlEncodeDecode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FrmJsonTool.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -120,6 +128,9 @@
     <Compile Include="FrmConnectionManagement.xaml.cs">
       <DependentUpon>FrmConnectionManagement.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FrmDatabaseTool.xaml.cs">
+      <DependentUpon>FrmDatabaseTool.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FrmExecuteSql.xaml.cs">
       <DependentUpon>FrmExecuteSql.xaml</DependentUpon>
     </Compile>
@@ -128,6 +139,9 @@
     </Compile>
     <Compile Include="FrmHtmlEncodeDecode.xaml.cs">
       <DependentUpon>FrmHtmlEncodeDecode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrmJsonTool.xaml.cs">
+      <DependentUpon>FrmJsonTool.xaml</DependentUpon>
     </Compile>
     <Compile Include="FrmMD5.xaml.cs">
       <DependentUpon>FrmMD5.xaml</DependentUpon>

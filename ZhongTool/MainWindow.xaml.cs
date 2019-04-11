@@ -78,8 +78,8 @@ namespace ZhongTool
 
         private void DatabaseTool_Click(object sender, RoutedEventArgs e)
         {
-            
-
+            FrmDatabaseTool frm = new FrmDatabaseTool();
+            frm.ShowDialog();
         }
 
         private void JsonTool_Click(object sender, RoutedEventArgs e)

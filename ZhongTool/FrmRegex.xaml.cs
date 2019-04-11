@@ -102,22 +102,20 @@ namespace ZhongTool
                             index++;
                         }
                         
-                    }
-
-                    
+                    }       
                     //column
                     
                     foreach (Match mc in matchCollection)
                     {
                         dynamic obj = new DynamicModel();
-                        obj.PropertyName = "Group 0";
+                        obj.PropertyName = "0";
                         obj.Property = mc.Value;
                         index = 1;
                         for (int i = 1; i < groups; i++)
                         {
                             if (mc.Groups[i].Success)
                             {
-                                obj.PropertyName = "Group " + index;
+                                obj.PropertyName = index.ToString();
                                 obj.Property = mc.Groups[i].Value;
                                 index++;
                             }

@@ -86,5 +86,11 @@ namespace ZhongTool
         {
             
         }
+
+        private void AndroidGenerateCode_Click(object sender, RoutedEventArgs e)
+        {
+            FrmAndroidTool frm = new FrmAndroidTool();
+            frm.ShowDialog();
+        }
     }
 }

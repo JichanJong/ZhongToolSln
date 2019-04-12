@@ -28,6 +28,7 @@
                 <MenuItem Height="32" Header="正则表达式" x:Name="regex" Click="regex_Click"></MenuItem>
                 <MenuItem Height="32" Header="数据库工具" x:Name="databaseTool" Click="DatabaseTool_Click"></MenuItem>
                 <MenuItem Height="32" Header="JSON工具" x:Name="jsonTool" Click="JsonTool_Click"></MenuItem>
+                <MenuItem Height="32" Header="Android生成代码" x:Name="androidGenerateCode" Click="AndroidGenerateCode_Click"></MenuItem>
             </MenuItem>
         </Menu>
     </Grid>

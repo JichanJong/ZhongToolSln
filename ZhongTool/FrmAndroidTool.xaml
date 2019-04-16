@@ -21,6 +21,7 @@
         <TextBlock Text="路径" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
         <TextBox x:Name="txtPath" Grid.Column="1" Grid.ColumnSpan="2"></TextBox>
         <Button x:Name="btnOpen" Content="..." Grid.Column="3" Margin="3" Click="btnOpen_Click"></Button>
-        <Button x:Name="btnGenerate" Content="生成" Grid.Column="4" Margin="3"></Button>
+        <Button x:Name="btnGenerate" Content="生成" Grid.Column="4" Margin="3" Click="btnGenerate_Click"></Button>
+        <TextBox x:Name="txtCode" TextWrapping="Wrap" AcceptsReturn="True" Grid.Row="1" Grid.ColumnSpan="5" FontSize="16"></TextBox>
     </Grid>
 </Window>

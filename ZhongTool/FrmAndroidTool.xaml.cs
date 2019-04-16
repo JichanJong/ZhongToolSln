@@ -11,7 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml;
 using System.Xml.Linq;
+using System.Xml.XPath;
 using Microsoft.Win32;
 
 namespace ZhongTool
@@ -44,8 +46,40 @@ namespace ZhongTool
                 MessageBox.Show("路径不存在");
                 return;
             }
-            XDocument doc = XDocument.Load(path);
-            
+
+            string conent = File.ReadAllText(path);
+            XmlReader reader = XmlReader.Create(new StringReader(conent));
+            XElement root = XElement.Load(reader);
+            XmlNameTable nameTable = reader.NameTable;
+            XmlNamespaceManager namespaceManager = new XmlNamespaceManager(nameTable);
+            namespaceManager.AddNamespace("android", "http://schemas.android.com/apk/res/android");
+            var elements = root.XPathSelectElements("//*[@android:id]", namespaceManager);
+            if (elements.Any())
+            {
+                StringBuilder sbDefined = new StringBuilder();
+                StringBuilder sbFind = new StringBuilder();
+                foreach (XElement element in elements)
+                {
+                    string id = element.Attribute("{http://schemas.android.com/apk/res/android}id")?.Value;
+                    if (!string.IsNullOrEmpty(id) && id.StartsWith("@+id/"))
+                    {
+                        id = id.TrimStart("@+id/".ToCharArray());
+                    }
+                    sbDefined.AppendLine($"    private {element.Name} m{element.Name}{id};");
+
+                    sbFind.AppendLine($"        m{element.Name}{id} = findViewById(R.id.{id});");
+                }
+
+                txtCode.Text = $@"public class ExampleActivity extends AppCompatActivity {{
+{sbDefined.ToString()}
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {{
+        super.onCreate(savedInstanceState);
+        //...
+{sbFind.ToString()}
+    }}
+}}";
+            }
         }
     }
 }

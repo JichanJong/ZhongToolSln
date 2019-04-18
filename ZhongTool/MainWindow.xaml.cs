@@ -27,29 +27,31 @@ namespace ZhongTool
         private void MD5MenuItem_Click(object sender, RoutedEventArgs e)
         {
             FrmMD5 frm = new FrmMD5();
-            frm.ShowDialog();
+            frm.Show();
         }
 
         private void Base64MenuItem_Click(object sender, RoutedEventArgs e)
         {
             FrmBase64 frm = new FrmBase64();
-            frm.ShowDialog();
+            frm.Show();
         }
 
         private void DESMenuItem_Click(object sender, RoutedEventArgs e)
         {
+            FrmDES frm = new FrmDES();
+            frm.Show();
         }
 
         private void URLMenuItem_Click(object sender, RoutedEventArgs e)
         {
             FrmURLEncodeDecode frm = new FrmURLEncodeDecode();
-            frm.ShowDialog();
+            frm.Show();
         }
 
         private void HTMLMenuItem_Click(object sender, RoutedEventArgs e)
         {
             FrmHtmlEncodeDecode frm = new FrmHtmlEncodeDecode();
-            frm.ShowDialog();
+            frm.Show();
         }
 
         private void ExecuteSqlMenuItem_Click(object sender, RoutedEventArgs e)
@@ -61,19 +63,19 @@ namespace ZhongTool
         private void GuidMenuItem_OnClick(object sender, RoutedEventArgs e)
         {
             FrmGuid frm = new FrmGuid();
-            frm.ShowDialog();
+            frm.Show();
         }
 
         private void QrcodeMenuItem_OnClick(object sender, RoutedEventArgs e)
         {
             FrmQrcode frm = new FrmQrcode();
-            frm.ShowDialog();
+            frm.Show();
         }
 
         private void regex_Click(object sender, RoutedEventArgs e)
         {
             FrmRegex frm = new FrmRegex();
-            frm.ShowDialog();
+            frm.Show();
         }
 
         private void DatabaseTool_Click(object sender, RoutedEventArgs e)
@@ -90,7 +92,13 @@ namespace ZhongTool
         private void AndroidGenerateCode_Click(object sender, RoutedEventArgs e)
         {
             FrmAndroidTool frm = new FrmAndroidTool();
-            frm.ShowDialog();
+            frm.Show();
+        }
+
+        private void FormatVariable_Click(object sender, RoutedEventArgs e)
+        {
+            FrmFormatVariable frm = new FrmFormatVariable();
+            frm.Show();
         }
     }
 }

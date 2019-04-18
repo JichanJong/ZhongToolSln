@@ -83,7 +83,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="FrmDES.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FrmExecuteSql.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FrmFormatVariable.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -138,8 +146,14 @@
     <Compile Include="FrmDatabaseTool.xaml.cs">
       <DependentUpon>FrmDatabaseTool.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FrmDES.xaml.cs">
+      <DependentUpon>FrmDES.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FrmExecuteSql.xaml.cs">
       <DependentUpon>FrmExecuteSql.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFormatVariable.xaml.cs">
+      <DependentUpon>FrmFormatVariable.xaml</DependentUpon>
     </Compile>
     <Compile Include="FrmGuid.xaml.cs">
       <DependentUpon>FrmGuid.xaml</DependentUpon>

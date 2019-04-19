@@ -71,6 +71,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="FrmCodeViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FrmConnectionEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -136,6 +140,9 @@
     </Compile>
     <Compile Include="FrmBase64.xaml.cs">
       <DependentUpon>FrmBase64.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCodeViewer.xaml.cs">
+      <DependentUpon>FrmCodeViewer.xaml</DependentUpon>
     </Compile>
     <Compile Include="FrmConnectionEdit.xaml.cs">
       <DependentUpon>FrmConnectionEdit.xaml</DependentUpon>

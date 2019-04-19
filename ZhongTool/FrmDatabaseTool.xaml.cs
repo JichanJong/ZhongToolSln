@@ -60,7 +60,7 @@ namespace ZhongTool
             }
 
             string key = txtKey.Text.Trim();
-            
+
             if (info.DatabaseType == DataBaseType.SqlServer)
             {
                 dbHelper = new SqlDbHelper(info.ConnectionString);
@@ -78,12 +78,57 @@ namespace ZhongTool
             DataGridRow row = sender as DataGridRow;
             if (row != null)
             {
-                DataRowView drv = (DataRowView) row.Item;
+                DataRowView drv = (DataRowView)row.Item;
                 string tableName = drv["TableName"].ToString();
                 if (dbHelper != null)
                 {
                     DataTable dt = dbHelper.GetColumns(tableName).Tables[0];
                     gridColumn.DataContext = dt.DefaultView;
+                }
+            }
+        }
+
+        private void BtnGenerateCode_Click(object sender, RoutedEventArgs e)
+        {
+            DataRowView drv = gridTable.SelectedItem as DataRowView;
+            if (drv != null)
+            {
+                string tableName = drv["TableName"].ToString();
+                if (dbHelper != null)
+                {
+                    DataTable dt = dbHelper.GetColumns(tableName).Tables[0];
+                    StringBuilder sbDefined = new StringBuilder();
+                    StringBuilder sbSet = new StringBuilder();
+                    StringBuilder sbAdd = new StringBuilder();
+                    sbAdd.AppendLine(
+                        " this.gdvData.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {");
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        string columnName = dr.Field<string>("ColumnName");
+                        string variableName = Tools.GetFormatText(columnName);
+                        string description = dr.Field<string>("Description");
+                        if (string.IsNullOrEmpty(description))
+                        {
+                            description = columnName;
+                        }
+                        sbDefined.AppendLine(
+                            $"private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn col{variableName};");
+                        string comment = $@"// 
+            // col{variableName}
+            //";
+                        sbSet.AppendLine(comment);
+                        sbSet.AppendLine($"this.col{variableName}.Caption = \"{description}\";");
+                        sbSet.AppendLine($"this.col{variableName}.Name = \"col{variableName}\";");
+                        sbSet.AppendLine($"this.col{variableName}.Visible = true;");
+                        sbSet.AppendLine($"this.col{variableName}.FieldName = \"{columnName}\";");
+
+                        sbAdd.AppendLine($"this.col{variableName},");
+                    }
+                    sbAdd.Append("}");
+
+                    FrmCodeViewer frm = new FrmCodeViewer
+                        {Code = sbAdd.ToString() + sbSet.ToString() + sbDefined.ToString()};
+                    frm.ShowDialog();
                 }
             }
         }

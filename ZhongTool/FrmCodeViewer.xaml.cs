@@ -10,26 +10,24 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ZhongTool.Common;
 
 namespace ZhongTool
 {
     /// <summary>
-    /// FrmFormatVariable.xaml 的交互逻辑
+    /// FrmCodeViewer.xaml 的交互逻辑
     /// </summary>
-    public partial class FrmFormatVariable : Window
+    public partial class FrmCodeViewer : Window
     {
-        public FrmFormatVariable()
+        public string Code { get; set; }
+
+        public FrmCodeViewer()
         {
             InitializeComponent();
         }
 
-        private void BtnFormat_Click(object sender, RoutedEventArgs e)
+        private void FrmCodeViewer_Loaded(object sender, RoutedEventArgs e)
         {
-            string input = txtInput.Text.Trim();
-            txtOutput.Text = Tools.GetFormatText(input);
+            txtCode.Text = Code;
         }
-
-        
     }
 }

@@ -100,6 +100,7 @@ namespace ZhongTool
                     StringBuilder sbDefined = new StringBuilder();
                     StringBuilder sbSet = new StringBuilder();
                     StringBuilder sbAdd = new StringBuilder();
+                    StringBuilder sbNew = new StringBuilder();
                     sbAdd.AppendLine(
                         " this.gdvData.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {");
                     foreach (DataRow dr in dt.Rows)
@@ -113,6 +114,10 @@ namespace ZhongTool
                         }
                         sbDefined.AppendLine(
                             $"private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn col{variableName};");
+
+                        sbNew.AppendLine(
+                            $"this.col{variableName} = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();");
+
                         string comment = $@"// 
             // col{variableName}
             //";
@@ -124,10 +129,10 @@ namespace ZhongTool
 
                         sbAdd.AppendLine($"this.col{variableName},");
                     }
-                    sbAdd.Append("}");
+                    sbAdd.AppendLine("}");
 
                     FrmCodeViewer frm = new FrmCodeViewer
-                        {Code = sbAdd.ToString() + sbSet.ToString() + sbDefined.ToString()};
+                        {Code = sbAdd.ToString() + sbNew.ToString() + sbSet.ToString() + sbDefined.ToString()};
                     frm.ShowDialog();
                 }
             }

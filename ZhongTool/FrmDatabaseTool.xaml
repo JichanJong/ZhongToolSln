@@ -56,7 +56,7 @@
                     </DataGrid.Columns>
                 </DataGrid>
                 <GridSplitter Grid.Column="1" Width="3" VerticalAlignment="Stretch" HorizontalAlignment="Center" ShowsPreview="False"></GridSplitter>
-                <DataGrid Grid.Column="2" x:Name="gridColumn" AutoGenerateColumns="False" ItemsSource="{Binding}" IsReadOnly="True">
+                <DataGrid Grid.Column="2" x:Name="gridColumn" AutoGenerateColumns="False" ItemsSource="{Binding}" IsReadOnly="True" SelectionUnit="Cell">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="列名" Width="*" Binding="{Binding Path=ColumnName}"></DataGridTextColumn>
                         <DataGridTextColumn Header="数据类型" Width="*" Binding="{Binding Path=DataType}"></DataGridTextColumn>

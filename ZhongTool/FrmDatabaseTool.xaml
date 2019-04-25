@@ -6,6 +6,11 @@
         xmlns:local="clr-namespace:ZhongTool"
         mc:Ignorable="d"
         Title="数据库工具" Height="600" Width="600" Loaded="FrmDatabaseTool_Loaded">
+    <Window.Resources>
+        <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
     <Grid>
         <DockPanel>
             <Grid DockPanel.Dock="Top" Height="24">
@@ -51,22 +56,23 @@
                         </Style>
                     </DataGrid.Resources>
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="表名" Width="*" Binding="{Binding Path=TableName}"></DataGridTextColumn>
-                        <DataGridTextColumn Header="描述" Width="2*" Binding="{Binding Path=Description}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="表名" Width="*" Binding="{Binding Path=TableName}" HeaderStyle="{StaticResource CenterGridHeaderStyle}">
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="描述" Width="2*" Binding="{Binding Path=Description}" HeaderStyle="{StaticResource CenterGridHeaderStyle}"></DataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>
                 <GridSplitter Grid.Column="1" Width="3" VerticalAlignment="Stretch" HorizontalAlignment="Center" ShowsPreview="False"></GridSplitter>
                 <DataGrid Grid.Column="2" x:Name="gridColumn" AutoGenerateColumns="False" ItemsSource="{Binding}" IsReadOnly="True" SelectionUnit="Cell">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="列名" Width="*" Binding="{Binding Path=ColumnName}"></DataGridTextColumn>
-                        <DataGridTextColumn Header="数据类型" Width="*" Binding="{Binding Path=DataType}"></DataGridTextColumn>
-                        <DataGridTextColumn Header="数据长度" Width="*" Binding="{Binding Path=DataLength}"></DataGridTextColumn>
-                        <DataGridTextColumn Header="精度" Width="*" Binding="{Binding Path=Precision}"></DataGridTextColumn>
-                        <DataGridCheckBoxColumn Header="标识" Width="*" Binding="{Binding Path=Identity}"></DataGridCheckBoxColumn>
-                        <DataGridCheckBoxColumn Header="主键" Width="*" Binding="{Binding Path=PrimaryKey}"></DataGridCheckBoxColumn>
-                        <DataGridCheckBoxColumn Header="可空" Width="*" Binding="{Binding Path=IsNullable}"></DataGridCheckBoxColumn>
-                        <DataGridTextColumn Header="默认值" Width="*" Binding="{Binding Path=DefaultValue}"></DataGridTextColumn>
-                        <DataGridTextColumn Header="描述" Width="*"  Binding="{Binding Path=Description}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="列名" Width="*" Binding="{Binding Path=ColumnName}" HeaderStyle="{StaticResource CenterGridHeaderStyle}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="数据类型" Width="*" Binding="{Binding Path=DataType}" HeaderStyle="{StaticResource CenterGridHeaderStyle}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="数据长度" Width="*" Binding="{Binding Path=DataLength}" HeaderStyle="{StaticResource CenterGridHeaderStyle}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="精度" Width="*" Binding="{Binding Path=Precision}" HeaderStyle="{StaticResource CenterGridHeaderStyle}"></DataGridTextColumn>
+                        <DataGridCheckBoxColumn Header="标识" Width="*" Binding="{Binding Path=Identity}" HeaderStyle="{StaticResource CenterGridHeaderStyle}"></DataGridCheckBoxColumn>
+                        <DataGridCheckBoxColumn Header="主键" Width="*" Binding="{Binding Path=PrimaryKey}" HeaderStyle="{StaticResource CenterGridHeaderStyle}"></DataGridCheckBoxColumn>
+                        <DataGridCheckBoxColumn Header="可空" Width="*" Binding="{Binding Path=IsNullable}" HeaderStyle="{StaticResource CenterGridHeaderStyle}"></DataGridCheckBoxColumn>
+                        <DataGridTextColumn Header="默认值" Width="*" Binding="{Binding Path=DefaultValue}" HeaderStyle="{StaticResource CenterGridHeaderStyle}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="描述" Width="*"  Binding="{Binding Path=Description}" HeaderStyle="{StaticResource CenterGridHeaderStyle}"></DataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>

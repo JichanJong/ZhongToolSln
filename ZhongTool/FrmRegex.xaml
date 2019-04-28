@@ -8,8 +8,8 @@
         Title="正则表达式工具" Height="800" Width="480" Loaded="FrmRegex_Loaded">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="24"></RowDefinition>
-            <RowDefinition Height="24"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*" x:Name="rowReplaceText"></RowDefinition>
             <RowDefinition Height="4*"></RowDefinition>

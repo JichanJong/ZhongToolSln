@@ -10,26 +10,26 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="32"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Menu Grid.Row="0">
-            <MenuItem Header="加密/解密" Height="32">
-                <MenuItem Height="32" Header="MD5" Click="MD5MenuItem_Click"></MenuItem>
-                <MenuItem Height="32" Header="Base64" Click="Base64MenuItem_Click"></MenuItem>
-                <MenuItem Height="32" Header="DES" Click="DESMenuItem_Click"></MenuItem>
-                <MenuItem Height="32" Header="URL" Click="URLMenuItem_Click"></MenuItem>
-                <MenuItem Height="32" Header="HTML" Click="HTMLMenuItem_Click"></MenuItem>
-                <MenuItem Height="32" Header="GUID" Click="GuidMenuItem_OnClick"></MenuItem>
+            <MenuItem Header="加密/解密" >
+                <MenuItem Header="MD5" Click="MD5MenuItem_Click"></MenuItem>
+                <MenuItem Header="Base64" Click="Base64MenuItem_Click"></MenuItem>
+                <MenuItem Header="DES" Click="DESMenuItem_Click"></MenuItem>
+                <MenuItem Header="URL" Click="URLMenuItem_Click"></MenuItem>
+                <MenuItem Header="HTML" Click="HTMLMenuItem_Click"></MenuItem>
+                <MenuItem Header="GUID" Click="GuidMenuItem_OnClick"></MenuItem>
             </MenuItem>
-            <MenuItem Header="工具" Height="32">
-                <MenuItem Height="32" Header="执行SQL" Click="ExecuteSqlMenuItem_Click"></MenuItem>
-                <MenuItem Height="32" Header="二维码生成" x:Name="qrcode" Click="QrcodeMenuItem_OnClick"></MenuItem>
-                <MenuItem Height="32" Header="正则表达式" x:Name="regex" Click="regex_Click"></MenuItem>
-                <MenuItem Height="32" Header="数据库工具" x:Name="databaseTool" Click="DatabaseTool_Click"></MenuItem>
-                <MenuItem Height="32" Header="JSON工具" x:Name="jsonTool" Click="JsonTool_Click"></MenuItem>
-                <MenuItem Height="32" Header="Android生成代码" x:Name="androidGenerateCode" Click="AndroidGenerateCode_Click"></MenuItem>
-                <MenuItem Height="32" Header="格式化变量" x:Name="formatVariable" Click="FormatVariable_Click"></MenuItem>
+            <MenuItem Header="工具">
+                <MenuItem  Header="执行SQL" Click="ExecuteSqlMenuItem_Click"></MenuItem>
+                <MenuItem  Header="二维码生成" x:Name="qrcode" Click="QrcodeMenuItem_OnClick"></MenuItem>
+                <MenuItem  Header="正则表达式" x:Name="regex" Click="regex_Click"></MenuItem>
+                <MenuItem  Header="数据库工具" x:Name="databaseTool" Click="DatabaseTool_Click"></MenuItem>
+                <MenuItem  Header="JSON工具" x:Name="jsonTool" Click="JsonTool_Click"></MenuItem>
+                <MenuItem  Header="Android生成代码" x:Name="androidGenerateCode" Click="AndroidGenerateCode_Click"></MenuItem>
+                <MenuItem  Header="格式化变量" x:Name="formatVariable" Click="FormatVariable_Click"></MenuItem>
             </MenuItem>
         </Menu>
     </Grid>

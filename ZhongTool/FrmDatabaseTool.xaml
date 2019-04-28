@@ -31,12 +31,13 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="2*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TextBox x:Name="txtKey" Grid.ColumnSpan="2" Margin="0 2"></TextBox>
+                <Label Content="表名或描述" HorizontalAlignment="Center"></Label>
+                <TextBox x:Name="txtKey" Grid.Column="1" Grid.ColumnSpan="2" Margin="0 2"></TextBox>
                 <Button x:Name="btnQuery" Click="BtnQuery_Click" Grid.Column="2" Content="查询" Margin="2"></Button>
                 <Button x:Name="btnGenerateCode"  Click="BtnGenerateCode_Click" Grid.Column="3" Content="生成BandedGridView代码" Margin="2"></Button>
             </Grid>

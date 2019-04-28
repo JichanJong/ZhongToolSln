@@ -18,7 +18,7 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <TextBox Grid.ColumnSpan="3" x:Name="txtInput"></TextBox>
-        <Button Content="格式化" x:Name="btnFormat" Click="BtnFormat_Click" Grid.Column="3"></Button>
+        <Button Content="格式化" x:Name="btnFormat" Click="BtnFormat_Click" Grid.Column="3" Margin="5"></Button>
         <TextBox x:Name="txtOutput" Grid.Row="1" Grid.ColumnSpan="4" TextWrapping="Wrap" AcceptsReturn="True"></TextBox>
     </Grid>
 </Window>

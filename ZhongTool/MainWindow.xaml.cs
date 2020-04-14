@@ -100,5 +100,11 @@ namespace ZhongTool
             FrmFormatVariable frm = new FrmFormatVariable();
             frm.Show();
         }
+
+        private void getSqlPara_Click(object sender, RoutedEventArgs e)
+        {
+            FrmGetSqlPara frm = new FrmGetSqlPara();
+            frm.Show();
+        }
     }
 }

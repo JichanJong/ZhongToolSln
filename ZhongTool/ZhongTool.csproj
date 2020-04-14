@@ -99,6 +99,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="FrmGetSqlPara.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FrmGuid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -161,6 +165,9 @@
     </Compile>
     <Compile Include="FrmFormatVariable.xaml.cs">
       <DependentUpon>FrmFormatVariable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGetSqlPara.xaml.cs">
+      <DependentUpon>FrmGetSqlPara.xaml</DependentUpon>
     </Compile>
     <Compile Include="FrmGuid.xaml.cs">
       <DependentUpon>FrmGuid.xaml</DependentUpon>

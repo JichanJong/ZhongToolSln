@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using System.Threading;
 using System.Windows;
 using System.Windows.Documents;
 using Microsoft.Win32;
@@ -64,23 +65,42 @@ namespace ZhongTool
         {
             if (!string.IsNullOrWhiteSpace(sql))
             {
-                if (chkContinue.IsChecked == true)
+                bool isContinue = false;
+                chkContinue.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal,
+                            new Action(() =>
+                            {
+                                isContinue = chkContinue.IsChecked == true;
+                            }));
+                if (isContinue)
                 {
                     try
                     {
                         int num = DbHelper.ExecuteNonQuery(sql, true);
-                        txtResult.Text += $"command execute successfully,{num} rows effect {Environment.NewLine}";
+                        txtResult.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal,
+                            new Action(() =>
+                            {
+                                txtResult.Text += $"command execute successfully,{num} rows effect {Environment.NewLine}";
+                            }));
+                       
                     }
                     catch (Exception ex)
                     {
-                        txtResult.Text +=
+                        txtResult.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal,
+                            new Action(() =>
+                            {
+                               txtResult.Text +=
                             $"error occurred when execute command,the error info is {ex.ToString()} {Environment.NewLine}";
+                            }));
                     }
                 }
                 else
                 {
                     int num = DbHelper.ExecuteNonQuery(sql, true);
-                    txtResult.Text += $"command execute successfully,{num} rows effect {Environment.NewLine}";
+                    txtResult.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal,
+                        new Action(() =>
+                        {
+                               txtResult.Text += $"command execute successfully,{num} rows effect {Environment.NewLine}";
+                        }));
                 }
             }
         }
@@ -96,31 +116,49 @@ namespace ZhongTool
             if (ofd.ShowDialog() == true)
             {
                 string path = ofd.FileName;
-                using (FileStream fs =new FileStream(path,FileMode.Open,FileAccess.Read))
+                Thread thread = new Thread(()=>{
+                    ExecuteFile(path);
+                });
+                thread.Start();
+            }
+        }
+
+        private void ExecuteFile(string path)
+        {
+            using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
+            {
+                using (StreamReader reader = new StreamReader(fs))
                 {
-                    using (StreamReader reader = new StreamReader(fs))
+                    StringBuilder sb = new StringBuilder();
+                    string line;
+                    int i = 0;
+                    while ((line = reader.ReadLine()) != null)
                     {
-                        StringBuilder sb =new StringBuilder();
-                        string line;
-                        while ((line = reader.ReadLine()) != null)
+                        if (line.Trim().Equals("go", StringComparison.OrdinalIgnoreCase))
                         {
-                            if (line.Trim().Equals("go", StringComparison.OrdinalIgnoreCase))
+                            //if (sb.Length > 0)
+                            //{
+                            //    ExecuteSql(sb.ToString());
+                            //    sb.Length = 0;
+                            //}
+                        }
+                        else
+                        {
+                            i++;
+                            sb.AppendLine(line);
+                            if(i == 1000)
                             {
-                                if (sb.Length > 0)
-                                {
-                                    ExecuteSql(sb.ToString());
-                                    sb.Length = 0;
-                                }
-                            }
-                            else
-                            {
-                                sb.AppendLine(line);
+                                ExecuteSql(sb.ToString());
+                                i = 0;
+                                sb.Length = 0;
                             }
                         }
                     }
+                    if(sb.Length > 0)
+                    {
+                        ExecuteSql(sb.ToString());
+                    }
                 }
-
-                MessageBox.Show("执行完毕");
             }
         }
     }

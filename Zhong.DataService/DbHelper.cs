@@ -47,6 +47,7 @@ namespace Zhong.DataService
 
             Factory.Command.Connection = Factory.Connection;
             Factory.Command.CommandText = sql;
+            Factory.Command.CommandTimeout = 0;
             return Factory.Command.ExecuteNonQuery();
         }
         /// <summary>

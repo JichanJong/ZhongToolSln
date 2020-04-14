@@ -30,6 +30,7 @@
                 <MenuItem  Header="JSON工具" x:Name="jsonTool" Click="JsonTool_Click"></MenuItem>
                 <MenuItem  Header="Android生成代码" x:Name="androidGenerateCode" Click="AndroidGenerateCode_Click"></MenuItem>
                 <MenuItem  Header="格式化变量" x:Name="formatVariable" Click="FormatVariable_Click"></MenuItem>
+                <MenuItem Header="提取SQL参数" x:Name="getSqlPara" Click="getSqlPara_Click"></MenuItem>
             </MenuItem>
         </Menu>
     </Grid>

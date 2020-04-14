@@ -18,6 +18,7 @@ namespace Zhong.DataService
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     conn.Open();
+                    cmd.CommandTimeout = 0;
                     return cmd.ExecuteNonQuery();
                 }
             }
@@ -34,6 +35,7 @@ namespace Zhong.DataService
                     {
                         DataSet ds = new DataSet();
                         conn.Open();
+                        cmd.CommandTimeout = 0;
                         adapter.Fill(ds);
                         return ds;
                     }
@@ -54,6 +56,7 @@ namespace Zhong.DataService
                     {
                         DataSet ds = new DataSet();
                         conn.Open();
+                        cmd.CommandTimeout = 0;
                         adapter.Fill(ds);
                         return ds;
                     }
@@ -105,6 +108,7 @@ namespace Zhong.DataService
                     {
                         DataSet ds = new DataSet();
                         conn.Open();
+                        cmd.CommandTimeout = 0;
                         adapter.Fill(ds);
                         return ds;
                     }

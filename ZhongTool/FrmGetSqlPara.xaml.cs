@@ -40,7 +40,7 @@ namespace ZhongTool
             }
 
             Dictionary<string, string> dic2 = new Dictionary<string, string>();
-            Regex reg2 = new Regex(@"(@.+?)\s+(.+?)(,|output)", RegexOptions.IgnoreCase);
+            Regex reg2 = new Regex(@"(@.+?)\s+(\S+)\s*(,|output)", RegexOptions.IgnoreCase);
             coll = reg2.Matches(paraDefinedStr);
             if (coll.Count > 0)
             {
@@ -58,8 +58,14 @@ namespace ZhongTool
                 {
                     sqlType = dic2[kv.Key];
                 }
-
-                sb.AppendLine($"{kv.Key} {sqlType} = {kv.Value}");
+                if (string.IsNullOrWhiteSpace(kv.Value))
+                {
+                    sb.AppendLine($"{kv.Key} {sqlType}");
+                }
+                else
+                {
+                    sb.AppendLine($"{kv.Key} {sqlType} = {kv.Value}");
+                }
             }
 
             txtResult.Text = sb.ToString();

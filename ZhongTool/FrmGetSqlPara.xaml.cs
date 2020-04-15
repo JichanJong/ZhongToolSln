@@ -40,7 +40,7 @@ namespace ZhongTool
             }
 
             Dictionary<string, string> dic2 = new Dictionary<string, string>();
-            Regex reg2 = new Regex(@"(@.+?)\s+(\S+)\s*(,|output)", RegexOptions.IgnoreCase);
+            Regex reg2 = new Regex(@"(@.+?)\s+(\S+)\s*(,|output)?", RegexOptions.IgnoreCase);
             coll = reg2.Matches(paraDefinedStr);
             if (coll.Count > 0)
             {

@@ -37,16 +37,16 @@
 
         <GroupBox x:Name="gopRegex" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="6">
             <GroupBox.Header>正则</GroupBox.Header>
-            <TextBox x:Name="txtRegex" TextWrapping="Wrap"></TextBox>
+            <TextBox x:Name="txtRegex" TextWrapping="Wrap" AcceptsReturn="True"></TextBox>
         </GroupBox>
         <GroupBox x:Name="gopReplace" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="6">
             <GroupBox.Header>替换为</GroupBox.Header>
-            <TextBox x:Name="txtReplaceText" TextWrapping="Wrap"></TextBox>
+            <TextBox x:Name="txtReplaceText" TextWrapping="Wrap" AcceptsReturn="True"></TextBox>
         </GroupBox>
 
         <GroupBox x:Name="gopInput" Grid.Row="4" Grid.ColumnSpan="6" Grid.Column="0">
             <GroupBox.Header>源文本</GroupBox.Header>
-            <TextBox TextWrapping="Wrap" x:Name="txtInput"></TextBox>
+            <TextBox TextWrapping="Wrap" x:Name="txtInput" AcceptsReturn="True"></TextBox>
         </GroupBox>
 
         <GroupBox x:Name="gopOutput" Grid.Row="5" Grid.ColumnSpan="6" Grid.Column="0">

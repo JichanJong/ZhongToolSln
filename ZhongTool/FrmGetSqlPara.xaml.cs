@@ -28,7 +28,10 @@ namespace ZhongTool
         {
             string paraWithValStr = txtParaWithValue.Text.Trim();
             string paraDefinedStr = txtParaDefined.Text.Trim();
-            Regex reg = new Regex(@"([@\w\s]*)=(.+?,)?");
+            Regex regOutput = new Regex(@"\boutput\b", RegexOptions.IgnoreCase);
+            paraWithValStr = regOutput.Replace(paraWithValStr, string.Empty);
+            paraDefinedStr = regOutput.Replace(paraDefinedStr, string.Empty);
+            Regex reg = new Regex(@"([@\w\s]*)=\s*(\S+,?)");
             Dictionary<string, string> dic = new Dictionary<string, string>();
             MatchCollection coll = reg.Matches(paraWithValStr);
             if (coll.Count > 0)
@@ -40,7 +43,7 @@ namespace ZhongTool
             }
 
             Dictionary<string, string> dic2 = new Dictionary<string, string>();
-            Regex reg2 = new Regex(@"(@.+?)\s+(\S+)\s*(,|output)?", RegexOptions.IgnoreCase);
+            Regex reg2 = new Regex(@"(@.+?)\s+([^,]+)\s*(,|output)?", RegexOptions.IgnoreCase);
             coll = reg2.Matches(paraDefinedStr);
             if (coll.Count > 0)
             {

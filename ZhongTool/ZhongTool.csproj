@@ -95,6 +95,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="FrmFormatSqlInPara.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FrmFormatVariable.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -162,6 +166,9 @@
     </Compile>
     <Compile Include="FrmExecuteSql.xaml.cs">
       <DependentUpon>FrmExecuteSql.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFormatSqlInPara.xaml.cs">
+      <DependentUpon>FrmFormatSqlInPara.xaml</DependentUpon>
     </Compile>
     <Compile Include="FrmFormatVariable.xaml.cs">
       <DependentUpon>FrmFormatVariable.xaml</DependentUpon>

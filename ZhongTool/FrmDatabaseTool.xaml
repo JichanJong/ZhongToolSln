@@ -13,7 +13,7 @@
     </Window.Resources>
     <Grid>
         <DockPanel>
-            <Grid DockPanel.Dock="Top" Height="24">
+            <Grid DockPanel.Dock="Top" MaxHeight="32">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
@@ -26,7 +26,7 @@
                     <Image  Source="Images/add.png" ToolTip="添加连接"></Image>
                 </Button>
             </Grid>
-            <Grid DockPanel.Dock="Top" Height="24">
+            <Grid DockPanel.Dock="Top" Height="Auto">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>

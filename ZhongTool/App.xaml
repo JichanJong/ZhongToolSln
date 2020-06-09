@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:ZhongTool"
              StartupUri="MainWindow.xaml" Startup="App_OnStartup">
     <Application.Resources>
-
+        <ResourceDictionary Source="FontSetting.xaml" />
     </Application.Resources>
 </Application>

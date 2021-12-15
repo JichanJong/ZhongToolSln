@@ -135,6 +135,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="FrmSyncMultDatabase.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FrmURLEncodeDecode.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -197,6 +201,9 @@
     </Compile>
     <Compile Include="FrmRegex.xaml.cs">
       <DependentUpon>FrmRegex.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSyncMultDatabase.xaml.cs">
+      <DependentUpon>FrmSyncMultDatabase.xaml</DependentUpon>
     </Compile>
     <Compile Include="FrmURLEncodeDecode.xaml.cs">
       <DependentUpon>FrmURLEncodeDecode.xaml</DependentUpon>

@@ -112,5 +112,11 @@ namespace ZhongTool
             FrmFormatSqlInPara frm = new FrmFormatSqlInPara();
             frm.Show();
         }
+
+        private void syncMultDatabase_Click(object sender, RoutedEventArgs e)
+        {
+            FrmSyncMultDatabase frm = new FrmSyncMultDatabase();
+            frm.ShowDialog();
+        }
     }
 }

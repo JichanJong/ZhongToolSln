@@ -32,6 +32,7 @@
                 <MenuItem  Header="格式化变量" x:Name="formatVariable" Click="FormatVariable_Click"></MenuItem>
                 <MenuItem Header="提取SQL参数" x:Name="getSqlPara" Click="getSqlPara_Click"></MenuItem>
                 <MenuItem Header="格式化SQL条件中IN参数" x:Name="formatSqlInPara" Click="formatSqlInPara_Click"></MenuItem>
+                <MenuItem Header="多数据库同步" x:Name="syncMultDatabase" Click="syncMultDatabase_Click"></MenuItem>
             </MenuItem>
         </Menu>
     </Grid>

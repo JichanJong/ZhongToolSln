@@ -1,15 +1,18 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Zhong.DataService
 {
-    public class SqlDbHelper : IDbHelper
+    public class SqlDbHelper : IDbHelper, IDisposable
     {
         private readonly string _connectionString;
         public SqlDbHelper(string connectionString)
         {
             _connectionString = connectionString;
+            _conn = new SqlConnection(_connectionString);
         }
+        private readonly SqlConnection _conn;
 
         public int ExecuteNonQuery(string sql)
         {
@@ -21,6 +24,23 @@ namespace Zhong.DataService
                     cmd.CommandTimeout = 0;
                     return cmd.ExecuteNonQuery();
                 }
+            }
+        }
+
+        public int ExecuteNonQuery(string sql, bool closeConnection)
+        {
+            if (closeConnection)
+            {
+                return ExecuteNonQuery(sql);
+            }
+            using (SqlCommand cmd = new SqlCommand(sql, _conn))
+            {
+                if (_conn.State != ConnectionState.Open)
+                {
+                    _conn.Open();
+                }
+                cmd.CommandTimeout = 0;
+                return cmd.ExecuteNonQuery();
             }
         }
 
@@ -51,7 +71,7 @@ namespace Zhong.DataService
             {
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    cmd.Parameters.Add(new SqlParameter("Key", "%"+ key + "%"));
+                    cmd.Parameters.Add(new SqlParameter("Key", "%" + key + "%"));
                     using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                     {
                         DataSet ds = new DataSet();
@@ -115,6 +135,14 @@ namespace Zhong.DataService
                 }
             }
 
+        }
+
+        public void Dispose()
+        {
+            if(_conn != null)
+            {
+                _conn.Dispose();
+            }
         }
     }
 }

@@ -11,9 +11,8 @@ namespace ZhongTool.Common
             string str = JsonConvert.SerializeObject(obj);
             if (!File.Exists(jsonFilePath))
             {
-                using (FileStream fs = File.Create(jsonFilePath))
-                {              
-                }
+                FileStream fs = File.Create(jsonFilePath);
+                fs.Dispose();
             }
             File.WriteAllText(jsonFilePath,str,Encoding.UTF8);
         }

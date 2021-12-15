@@ -18,7 +18,7 @@
             <ColumnDefinition Width="3*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="txtInput" Margin="2" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"></TextBox>
+        <TextBox x:Name="txtInput" Margin="2" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" AcceptsReturn="True" TextWrapping="Wrap"></TextBox>
         <Button x:Name="btnGenerate" Margin="5" Grid.Column="1" Grid.Row="0" Content="生成" Click="BtnGenerate_OnClick"></Button>
         <ComboBox x:Name="cmbLevel" Margin="10" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center" SelectedValuePath="Value" DisplayMemberPath="Text"></ComboBox>
         <Image x:Name="imgQrCode" Grid.Column="0" Grid.Row="2" Grid.RowSpan="2"></Image>

@@ -34,7 +34,7 @@
                     </StackPanel>
                 </Button>
             </ToolBar>
-            <ListView DockPanel.Dock="Bottom" x:Name="lstConnection">
+            <ListView DockPanel.Dock="Bottom" x:Name="lstConnection" SelectionMode="Multiple">
                 <ListView.View>
                     <GridView>
                         <GridView.Columns>

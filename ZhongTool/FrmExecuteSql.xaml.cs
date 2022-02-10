@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.IO;
 using System.Text;
 using System.Threading;
@@ -76,12 +77,17 @@ namespace ZhongTool
                 {
                     try
                     {
-                        int num = DbHelper.ExecuteNonQuery(sql, true);
-                        txtResult.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal,
-                            new Action(() =>
-                            {
-                                txtResult.Text += $"command execute successfully,{num} rows effect {Environment.NewLine}";
-                            }));
+                        //int num = DbHelper.ExecuteNonQuery(sql, true);
+                        DataSet ds = DbHelper.ExecuteQuery(sql,true);
+                        if(ds.Tables.Count > 0)
+                        {
+                            dgGrid.ItemsSource = ds.Tables[0].DefaultView; 
+                        }
+                        //txtResult.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal,
+                        //    new Action(() =>
+                        //    {
+                        //        txtResult.Text += $"command execute successfully,{num} rows effect {Environment.NewLine}";
+                        //    }));
                        
                     }
                     catch (Exception ex)
@@ -96,12 +102,18 @@ namespace ZhongTool
                 }
                 else
                 {
-                    int num = DbHelper.ExecuteNonQuery(sql, true);
-                    txtResult.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal,
-                        new Action(() =>
-                        {
-                               txtResult.Text += $"command execute successfully,{num} rows effect {Environment.NewLine}";
-                        }));
+                    //int num = DbHelper.ExecuteNonQuery(sql, true);
+                    //txtResult.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Normal,
+                    //    new Action(() =>
+                    //    {
+                    //           txtResult.Text += $"command execute successfully,{num} rows effect {Environment.NewLine}";
+                    //    }));
+
+                    DataSet ds = DbHelper.ExecuteQuery(sql, true);
+                    if (ds.Tables.Count > 0)
+                    {
+                        dgGrid.ItemsSource = ds.Tables[0].DefaultView;
+                    }
                 }
             }
         }

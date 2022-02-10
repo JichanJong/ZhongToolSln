@@ -7,6 +7,7 @@ using System.Windows.Documents;
 using Microsoft.Win32;
 using Zhong.DataService;
 using ZhongTool.Model;
+using System.Linq;
 
 namespace ZhongTool
 {
@@ -127,7 +128,7 @@ namespace ZhongTool
         {
             using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
             {
-                using (StreamReader reader = new StreamReader(fs))
+                using (StreamReader reader = new StreamReader(fs,Encoding.UTF8))
                 {
                     StringBuilder sb = new StringBuilder();
                     string line;
@@ -136,11 +137,11 @@ namespace ZhongTool
                     {
                         if (line.Trim().Equals("go", StringComparison.OrdinalIgnoreCase))
                         {
-                            //if (sb.Length > 0)
-                            //{
-                            //    ExecuteSql(sb.ToString());
-                            //    sb.Length = 0;
-                            //}
+                            if (sb.Length > 0)
+                            {
+                                ExecuteSql(sb.ToString());
+                                sb.Length = 0;
+                            }
                         }
                         else
                         {
@@ -159,6 +160,27 @@ namespace ZhongTool
                         ExecuteSql(sb.ToString());
                     }
                 }
+            }
+        }
+
+        private void btnExecuteSqlDirectory_Click(object sender, RoutedEventArgs e)
+        {
+            if (DbHelper == null)
+            {
+                MessageBox.Show("请先连接数据库再进行此操作");
+                return;
+            }
+            System.Windows.Forms.FolderBrowserDialog ofd = new System.Windows.Forms.FolderBrowserDialog();
+            if (ofd.ShowDialog() ==  System.Windows.Forms.DialogResult.OK)
+            {
+                string path = ofd.SelectedPath;
+                string[] files = Directory.GetFiles(path);
+                files = files.OrderBy(f => Path.GetFileName(f)).ToArray();
+                foreach (string file in files)
+                {
+                    ExecuteFile(file);
+                }
+                MessageBox.Show("ok");
             }
         }
     }

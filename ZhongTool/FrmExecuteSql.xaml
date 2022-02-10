@@ -25,6 +25,12 @@
                         <TextBlock Text="选择文件执行" VerticalAlignment="Center"></TextBlock>
                     </StackPanel>
                 </Button>
+                <Button x:Name="btnExecuteSqlDirectory" Click="btnExecuteSqlDirectory_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Images/debugfile.png"></Image>
+                        <TextBlock Text="选择目录执行" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                </Button>
                 <Button x:Name="btnExecuteSql" Click="BtnExecuteSql_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Images/debug.png"></Image>
